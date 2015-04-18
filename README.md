@@ -1,12 +1,12 @@
 # What2Buy
 School application exemple
 ## Team
-1 Nicola Patrick	3,5
-2 JJ 			7, integrazione
-3 Mattia Edo		4
-4 Esposito Cera		1
-5 Fabio Martino		2
-6 alb			6
+1. Nicola Patrick	3,5
+2. JJ 			7, integrazione
+3. Mattia Edo		4
+4. Esposito Cera		1
+5. Fabio Martino		2
+6. alb			6
 
 ## Metodi:
 * 1 String[] loadList(File file): carica la lista dal file
