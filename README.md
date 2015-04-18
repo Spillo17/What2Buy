@@ -1,5 +1,6 @@
 # What2Buy
-School application exemple
+Simple Java Shopping List application sample
+
 ## Team
 1. Nicola Patrick	3,5
 2. JJ 			7, integrazione
@@ -8,7 +9,7 @@ School application exemple
 5. Fabio Martino		2
 6. alb			6
 
-## Metodi:
+## Methods:
 * 1 String[] loadList(File file): carica la lista dal file
 * 2 void saveList(File file,String[] list): salva la lista nel file
 * 3 String[] addToList(String[] list, String item): ritorna una nuova lista contenente l'elemento aggiuntivo item
@@ -19,10 +20,10 @@ School application exemple
 
 
 # Comandi
-* add: aggiunge un elemento alla lista (es.: add pane)
-* remove/rm: rimuove un elemento dalla lista (es. rm pane)
-* list/ls: elenca il contenuto della lista
-* quit: esce dal programma
+* add: adds an element to the list (ie. add apples)
+* remove/rm: removes an element (ie. rm bread)
+* list/ls: prints out the list
+* quit
 
 
 
