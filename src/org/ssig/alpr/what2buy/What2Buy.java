@@ -111,15 +111,14 @@ public class What2Buy {
     }
 
     /**
-     * Ritorna nuova lista modificata con il nuovo prodotto. Ricevo l'array, lo
-     * copio e lo inserisco in quello nuovo in cui avrà una posizione libera in
-     * più
+     * Ritorna una nuova lista con il nuovo prodotto inserito.
+     * Il metodo riceve l'array attuale, esegue una copia e la inserisce nel nuovo array il quale avrà una posizione in più.
      *
      * @param list corrisponde all'array attuale
      * @param item corrisponde al prodotto da aggiungere
      * @return Ritorna il nuovo array con all'ultima posizione il nuovo prodotto
      * 
-     * @author ???
+     * @author Nicola Agustoni, Patrick Realini
      */
     public static String[] addToList(String[] list, String item) {
         String[] addToList = new String[list.length + 1];
@@ -136,11 +135,15 @@ public class What2Buy {
      * @param list corrisponde all'array contenente tutti gli elementi della
      * nostra lista
      * 
-     * @author ???
+     * @author Nicola Agustoni, Patrick Realini
      */
     public static void printList(String[] list) {
-        for (int i = 0; i < list.length; i++) {
-            System.out.println("- " + list[i]);
+        if(list.length>0){
+            for (int i = 0; i < list.length; i++) {
+                System.out.println("- " + list[i]);
+            }
+        }else{
+            System.out.println("La lista é vuota");
         }
     }
 
