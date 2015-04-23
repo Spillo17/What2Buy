@@ -41,7 +41,7 @@ public class What2Buy {
     /**
      * @param args the command line arguments
      * 
-     * @author ???
+     * @author Jacky Brücker, Jacopo Fontana
      */
     public static void main(String[] args) {
 
