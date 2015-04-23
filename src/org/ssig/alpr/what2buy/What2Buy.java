@@ -72,7 +72,7 @@ public class What2Buy {
      * comando add o rm senza passare il secondo parametro l'applicazione lancia
      * un eccezione richimando l'helper
      * 
-     * @author ???
+     * @author Jacky Brücker, Jacopo Fontana
      */
     public static void parseCommand(File file, String line) {
 
