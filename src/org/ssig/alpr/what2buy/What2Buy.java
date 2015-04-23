@@ -23,7 +23,12 @@
  */
 package org.ssig.alpr.what2buy;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -35,6 +40,8 @@ public class What2Buy {
 
     /**
      * @param args the command line arguments
+     * 
+     * @author ???
      */
     public static void main(String[] args) {
 
@@ -64,12 +71,14 @@ public class What2Buy {
      * @throws NoSuchElementException nel caso in cui l'utente utilizza il
      * comando add o rm senza passare il secondo parametro l'applicazione lancia
      * un eccezione richimando l'helper
+     * 
+     * @author ???
      */
     public static void parseCommand(File file, String line) {
 
         try {
-            // String[] list = loadList(file);
-            String[] list = {"lista", "di", "test", "caricami", "dal", "file"};//AA
+            String[] list = loadList(file);
+            //String[] list = {"lista", "di", "test", "caricami", "dal", "file"};//AA
             Scanner input = new Scanner(line);
             String cmd = input.next();
             String item = "";
@@ -94,8 +103,8 @@ public class What2Buy {
                     printHelp();
 
             }
-        } catch (NoSuchElementException e) {
-            
+        } catch (IOException e) {
+
             printHelp();//AA
         }
 
@@ -109,6 +118,8 @@ public class What2Buy {
      * @param list corrisponde all'array attuale
      * @param item corrisponde al prodotto da aggiungere
      * @return Ritorna il nuovo array con all'ultima posizione il nuovo prodotto
+     * 
+     * @author ???
      */
     public static String[] addToList(String[] list, String item) {
         String[] addToList = new String[list.length + 1];
@@ -124,6 +135,8 @@ public class What2Buy {
      *
      * @param list corrisponde all'array contenente tutti gli elementi della
      * nostra lista
+     * 
+     * @author ???
      */
     public static void printList(String[] list) {
         for (int i = 0; i < list.length; i++) {
@@ -133,6 +146,7 @@ public class What2Buy {
 
     /**
      * Stampa la guida d'uso. (alb)
+     * @author alb
      */
     public static void printHelp() {
         System.out.println("Comandi:");
@@ -142,6 +156,100 @@ public class What2Buy {
         System.out.println("list\t\tStampa la lista.");
         System.out.println("ls\t\tStampa la lista.");
         System.out.println("quit\t\tTermina il programma.");
+    }
+
+    /**
+     * Questo metodo può sollevare un'eccezione
+     *
+     * @param file
+     * @throws IOException
+     * @TODO completare il metodo
+     * @author ???
+     */
+    static String[] loadList(File file) throws IOException {
+        //Variabile per interfacciarsi con il file in lettura
+        DataInputStream dis = null;
+        String[] items = null;
+        boolean EOF;
+        try {
+            dis = new DataInputStream(new FileInputStream(file));//leggo il file
+
+            EOF = false;
+            while (!EOF) {
+                System.out.println(dis.readUTF());
+            }
+            dis.close();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        return items;
+    }
+
+    /**
+     * prende un array di stringa e il file la salva gli elementi contenuti nell
+     * array in un file
+     *
+     * @param file ???
+     * @param list ???
+     * @param args !!!
+     * @author ???
+     */
+    public static void saveList(File file, String[] list) throws IOException {
+        DataOutputStream out = null;
+
+        try {
+            //apro lo stream di scrittura per il file "destinazione"
+            out = new DataOutputStream(new FileOutputStream(file));
+
+            for (int i = 0; i < list.length; i++) {//per ogni byte da spedire
+                out.writeUTF(list[i]); // scrivo ogni elemento della lista alla iesima posizione
+                System.out.println("" + list[i]);//FEEDBACK per vedere se funziona stampo a terminale il valore del byte
+            }
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (out != null) {
+                out.close();
+            }
+        }
+
+    }
+
+    /**
+     * - Il metodo deve prendere in argomento una lista di stringhe e un item -
+     * il metodo rimuove un item dalla lista - il confronto non è case sensitive
+     * - se l'item da rimuovere non è presente nell'array il ciclo si interrompe
+     *
+     * @param list ???
+     * @param item ???
+     * @return ????
+     * 
+     * @author ???
+     */
+    public static String[] removeFromList(String[] list, String item) {
+        int position = -1;
+        String[] newList;
+        int j = 0;
+
+        for (int i = 0; i < list.length; i++) {
+            if (item.equalsIgnoreCase(list[i])) {
+                position = i;
+                break;
+            }
+        }
+        newList = new String[list.length - 1];
+
+        int idx = 0;
+        for (int i = 0; i < list.length; i++) {
+            if (i != position) {
+                newList[idx] = list[i];
+                idx++;
+            }
+
+        }
+
+        return newList;
+
     }
 
 }
