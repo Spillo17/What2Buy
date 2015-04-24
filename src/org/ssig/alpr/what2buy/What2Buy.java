@@ -167,7 +167,7 @@ public class What2Buy {
      * @param file
      * @throws IOException
      * @TODO completare il metodo
-     * @author ???
+     * @author Mattia Tommaso
      */
     static String[] loadList(File file) throws IOException {
         //Variabile per interfacciarsi con il file in lettura
