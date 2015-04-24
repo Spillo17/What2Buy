@@ -191,11 +191,9 @@ public class What2Buy {
     /**
      * prende un array di stringa e il file la salva gli elementi contenuti nell
      * array in un file
-     *
-     * @param file ???
-     * @param list ???
-     * @param args !!!
-     * @author ???
+     * @param list array di tutti gli elementi della lista
+     * 
+     * @author Fabio e Martino
      */
     public static void saveList(File file, String[] list) throws IOException {
         DataOutputStream out = null;
