@@ -190,8 +190,10 @@ public class What2Buy {
 
     /**
      * prende un array di stringa e il file la salva gli elementi contenuti nell
-     * array in un file
+     * array in un file;
+     * 
      * @param list array di tutti gli elementi della lista
+     * @file è il nome del file da salvare
      * 
      * @author Fabio e Martino
      */
