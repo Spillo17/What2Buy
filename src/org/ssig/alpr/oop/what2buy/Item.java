@@ -28,7 +28,7 @@ package org.ssig.alpr.oop.what2buy;
 public class Item {
 
 
-    private String name;
+    public String name;
 
     private double price;
 
@@ -41,7 +41,7 @@ public class Item {
      * @param price
      * @param qty
      */
-    public Item(String name, double price, int qty){
+    public Item(String name, double price, int qty) {
         this.name = name;
         this.price = price;
         this.qty = qty;
@@ -49,6 +49,7 @@ public class Item {
 
     /**
      * Ritorna il nome dell'articolo
+     *
      * @return
      */
     public String getName() {
@@ -57,6 +58,7 @@ public class Item {
 
     /**
      * Imposta il nome dell'articolo
+     *
      * @param name
      */
     public void setName(String name) {
@@ -65,6 +67,7 @@ public class Item {
 
     /**
      * Ritorna il prezzo di un dato articolo
+     *
      * @return double
      */
     public double getPrice() {
@@ -74,13 +77,20 @@ public class Item {
     /**
      * Imposta il prezzo di un dato articolo
      * @param price
+     *
+     * @TODO decidere in caso sia negativo cosa fare
      */
     public void setPrice(double price) {
-        this.price = price;
+        if(price > 0) {
+            this.price = price;
+        }else{
+
+        }
     }
 
     /**
      * Ritorna la quantita di un dato articolo
+     *
      * @return int qty
      */
     public int getQty() {
@@ -88,20 +98,26 @@ public class Item {
     }
 
     /**
-     *  Imposta la quantita di un dato articolo
+     * Imposta la quantita di un dato articolo
+     *
      * @param qty
+     *
+     * @TODO decidere in caso sia negativo cosa fare
      */
     public void setQty(int qty) {
-        this.qty = qty;
+        if(qty > 0) {
+            this.qty = qty;
+        }else{
+
+        }
     }
 
     /**
-     *
      * @return stringa contenente gli attributi dell'oggetto in forma leggibile
      */
     @Override
-    public String toString(){
-        return this.qty +" x "+this.name + " - " + this.qty*this.price;
+    public String toString() {
+        return this.qty + " x " + this.name + " - " + this.qty * this.price;
     }
 }
 
